@@ -6,6 +6,8 @@ defmodule QuizBuilders do
     end
   end
 
+  alias Mastery.Core.{Template, Question, Quiz}
+
   def template_fields(overrides \\ []) do
     Keyword.merge(
       [
