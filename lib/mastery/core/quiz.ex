@@ -72,7 +72,11 @@ defmodule Mastery.Core.Quiz do
   end
 
   defp reset_used(%{current_question: question = quiz}) do
-    Map.put(quiz, :used, List.delete(quiz.used, question.template))
+    Map.put(
+      quiz,
+      :used,
+      List.delete(quiz.used, question.template)
+    )
   end
 
   defp inc_record(%{current_question: question} = quiz) do
@@ -90,11 +94,11 @@ defmodule Mastery.Core.Quiz do
     Map.put(
       quiz,
       :current_question,
-      select_a_random_quesiton(quiz)
+      select_a_random_question(quiz)
     )
   end
 
-  defp select_a_random_quesiton(quiz) do
+  defp select_a_random_question(quiz) do
     quiz.templates
     |> Enum.random()
     |> elem(1)
