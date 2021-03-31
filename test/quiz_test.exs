@@ -28,34 +28,19 @@ defmodule QuizTest do
     test "a wrong answer resets mastery", %{quiz: quiz} do
       quiz
       |> Quiz.select_question()
-      |> IO.inspect(label: "FIRST")
       |> assert_more_questions
-      |> IO.inspect(label: "SECOND")
       |> right_answer
-      |> IO.inspect(label: "THIRD")
       |> Quiz.select_question()
-      |> IO.inspect(label: "FOURTH")
       |> assert_more_questions
-      |> IO.inspect(label: "FIFTH")
       |> wrong_answer
-      |> IO.inspect(label: "SIXTH")
       |> Quiz.select_question()
-      |> IO.inspect(label: "SEVENTH")
       |> assert_more_questions
-      |> IO.inspect(label: "EIGHTH")
       |> right_answer
-      |> IO.inspect(label: "NINTH")
       |> Quiz.select_question()
-      |> IO.inspect(label: "TENTH")
       |> assert_more_questions
-      |> IO.inspect(label: "ELEVENTH")
       |> right_answer
-      |> IO.inspect(label: "TWELVETH")
-
-      # |> Quiz.select_question()
-      # |> IO.inspect(label: "THIRTEENTH")
-      # |> refute_more_questions
-      # |> IO.inspect(label: "FOURTEENTH")
+      |> Quiz.select_question()
+      |> refute_more_questions
     end
   end
 
